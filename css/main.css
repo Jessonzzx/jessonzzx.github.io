@@ -1,0 +1,409 @@
+:root {
+    /* Light theme */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --nav-bg: #f8f9fa;
+    --nav-text: #333333;
+    --nav-hover: #e9ecef;
+    --nav-active: #007bff;
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #e0e0e0;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --section-bg: #f8f9fa;
+    --link-color: #007bff;
+    --link-hover: #0056b3;
+    --button-bg: #007bff;
+    --button-text: #ffffff;
+    --button-hover: #0056b3;
+    --badge-bg: #e9ecef;
+    --badge-text: #495057;
+}
+
+[data-theme="dark"] {
+    /* Dark theme */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --nav-bg: #2d2d2d;
+    --nav-text: #e0e0e0;
+    --nav-hover: #404040;
+    --nav-active: #4a9eff;
+    --sidebar-bg: #2d2d2d;
+    --sidebar-border: #404040;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --section-bg: #252525;
+    --link-color: #4a9eff;
+    --link-hover: #6bb3ff;
+    --button-bg: #4a9eff;
+    --button-text: #ffffff;
+    --button-hover: #6bb3ff;
+    --badge-bg: #404040;
+    --badge-text: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--nav-bg);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a strong {
+    font-weight: 700;
+    color: inherit;
+}
+
+.nav-links a:hover {
+    background-color: var(--nav-hover);
+}
+
+.nav-links a.active {
+    color: var(--nav-active);
+    background-color: var(--nav-hover);
+}
+
+.theme-toggle {
+    background: none;
+    color: var(--nav-text);
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--nav-hover);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--sidebar-border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--sidebar-border);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.sidebar-info {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.sidebar-info strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.sidebar-info a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar-info a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+    background-color: var(--bg-color);
+}
+
+/* Page Title (for Software/Game Projects pages) */
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    border-bottom: 3px solid var(--nav-active);
+    padding-bottom: 0.5rem;
+}
+
+/* Section (for index.html) */
+.section {
+    background-color: var(--section-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease;
+}
+
+.section h2 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--nav-active);
+    padding-bottom: 0.5rem;
+}
+
+.section p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.section ul {
+    margin-left: 2rem;
+    color: var(--text-color);
+}
+
+.section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Download Button (for index.html) */
+.download-btn {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: var(--button-hover);
+}
+
+/* Project Grid (for Software/Game Projects pages) */
+.project-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--section-bg);
+    border: 1px solid var(--sidebar-border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Project Platform (for Game Projects) */
+.project-platform {
+    color: var(--nav-active);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Tech Badges (for Software Projects) */
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Project Highlights (for Game Projects) */
+.project-highlights {
+    margin-bottom: 1.5rem;
+}
+
+.project-highlights ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.project-highlights li {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.project-highlights li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--nav-active);
+    font-weight: bold;
+}
+
+/* Media Placeholder (for Game Projects) */
+.media-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: var(--badge-bg);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 2px dashed var(--sidebar-border);
+    color: var(--badge-text);
+    font-size: 0.9rem;
+}
+
+.media-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Project Actions (for Software/Game Projects) */
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--button-bg);
+    color: var(--button-bg);
+}
+
+.btn-secondary:hover {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
