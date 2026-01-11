@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhengxi Zhang - Home</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="active"><strong>Zhengxi Zhang</strong></a></li>
+            <li><a href="softwareProject.html">Software Projects</a></li>
+            <li><a href="gameProject.html">Game Projects</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <img src="assets/image/profileImage.png" alt="Profile" class="profile-img">
+            <h2>Zhengxi Zhang</h2>
+            <div class="sidebar-info">
+                <p><strong>Professional</strong></p>
+                <p>B.S. in Software Development Emphasis EAE @ University of Utah</p>
+            </div>
+            <div class="sidebar-info">
+                <p><strong>Email</strong></p>
+                <p><a href="mailto:u1341522@umail.utah.edu">u1341522@umail.utah.edu</a></p>
+                <p><a href="mailto:jessssonzhang@gmail.com">jessssonzhang@gmail.com</a></p>
+            </div>
+            <div class="sidebar-info">
+                <p><strong>GitHub</strong></p>
+                <p><a href="https://github.com/Jessonzzx" target="_blank">https://github.com/Jessonzzx</a></p>
+            </div>
+            <div class="sidebar-info">
+                <p><strong>LinkedIn</strong></p>
+                <p><a href="https://www.linkedin.com/in/zhengxi-zhang-84282324a" target="_blank">https://www.linkedin.com/in/zhengxi-zhang-84282324a</a></p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="section">
+                <h2>About Me</h2>
+                <p>
+                I'm Zhengxi (Jesson) Zhang, a Software Development Emphasis EAE student at the University of Utah, passionate about building user-focused applications and games. I've developed mobile apps, web platforms, games and real-time systems using Django, Swift, Kotlin, C++, Unity, Unreal5, Gamemaker2 and more—often combining technical skill with creative design.
+                I am currently seeking internship and job opportunities in web development, software development, game development, or mobile applications where I can apply my technical skills, creativity, and passion for building impactful digital experiences.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Education</h2>
+                <p><strong>University of Utah</strong></p>
+                <p>B.S. in Software Development, Emphasis in Entertainment Arts and Engineering (EAE)</p>
+                <p>Expected Graduation: May, 2026</p>
+            </section>
+
+            <section class="section">
+                <h2>Resume</h2>
+                <p>Download my resume to learn more about my professional experience and skills.</p>
+                <a href="assets/resume.pdf" class="download-btn" download>Download Resume (Software Dev)</a>
+                <a href="assets/resume.pdf" class="download-btn" download>Download Resume (Games Dev)</a>
+            </section>
+
+            <section class="section">
+                <h2>Interests</h2>
+                <ul>
+                    <li>Software Development and Architecture</li>
+                    <li>Game Development</li>
+                    <li>Full-Stack Web Development</li>
+                    <li>Mobile Application Development</li>
+                    <li>User Experience Design</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check localStorage for saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+
+        // Apply saved theme on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        });
+    </script>
+</body>
+</html>
